@@ -5,4 +5,4 @@ Credit for the following functions in this repository goes to David Selby (sourc
 
 feedforward, backpropagate, train
 
-I have edited some of these functions myself to experiment on different types of neural networks.
+I have modified these functions myself to create and experiment on different types of neural networks.
