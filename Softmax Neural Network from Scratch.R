@@ -1,9 +1,9 @@
-### SOFTMAX IMPLEMENTATION
+### SOFTMAX IMPLEMENTATION 
 
 #Iris data set including 4 features and 3 different target
 x<- as.matrix(iris[,1:4])
 
-#ONE HOT ENCODING
+#One hot encoding
 y<- model.matrix(~Species-1, iris)
 y<- as.matrix(as.data.frame(y))
 
