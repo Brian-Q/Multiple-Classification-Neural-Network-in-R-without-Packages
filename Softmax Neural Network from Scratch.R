@@ -1,6 +1,6 @@
 ### SOFTMAX IMPLEMENTATION 
 
-#Iris data set including 4 features and 3 different target
+#Iris data set including 4 features and 3 different targets
 x<- as.matrix(iris[,1:4])
 
 #One hot encoding
@@ -60,10 +60,18 @@ train <- function(x, y, hidden, learn_rate, iterations) {
 }
 
 #Training the Softmax neural network with 10 hidden layers over 100,000 iterations. 
-#Used only two features here for now, for visualization purposes. 
+#Used only 2 features here for now for visualization purposes: Sepal length and sepal width 
 nnet10 <- train(x[,1:2], y, hidden=10, learn_rate =1e-4, iterations=1e5) 
 
-#Model accuracy (roughly 83% on the entire data set with 2 features)
+#Model accuracy (roughly 83% on the entire data set with these 2 features)
 mean(apply(nnet10$output, 1, which.max) == apply(y, 1, which.max))
 
-#We can do better by including all 4 features rather than just two.
+#Similarly with the other two features: Petal length and petal width
+nnet10_2 <- train(x[,3:4], y, hidden=10, learn_rate =1e-4, iterations=1e5)
+
+#Roughly 96% model accuracy on the entire data set with the other 2 features. 
+#This is due to the plant species being more easily distinguishable when training on petal features rather than sepal. See images.
+mean(apply(nnet10_2$output, 1, which.max) == apply(y, 1, which.max))
+
+#Now with the entire data set (soon to come)
+
